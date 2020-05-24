@@ -91,7 +91,7 @@ export const mapAveragesToKeywords = (averages: number[], keywords: IKeyword[]) 
 
   return keywords.map((kw, index) => {
     kw.normalizedTrend = averages[index]
-    
+
     return kw
   })
 }

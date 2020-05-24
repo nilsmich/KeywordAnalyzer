@@ -4,7 +4,7 @@ export interface IKeyword {
   normalizedTrend?: number
 }
 export interface IKeywordBatches {
-  referenceKw: IKeyword
+  referenceKw: string
   batches: IKeyword[][]
 }
 

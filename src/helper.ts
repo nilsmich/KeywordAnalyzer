@@ -29,3 +29,7 @@ export const readJson = async (path: string) => {
 
   return JSON.parse(data)
 }
+
+export const wait = async ms => new Promise(resolve => {
+  setTimeout(resolve, ms)
+})

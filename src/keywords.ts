@@ -6,7 +6,9 @@ export const initKeywords = (rawKeywords: string) => {
     .map(kw => kw.trim())
     .filter(kw => !!kw)
 
-  return rawKWArray.map(kw => {
+  const uniqueKeyWords = new Set(rawKWArray)
+
+  return Array.from(uniqueKeyWords).map(kw => {
     const keyword: IKeyword = {
       keyword: kw,
       normalizedTrend: undefined

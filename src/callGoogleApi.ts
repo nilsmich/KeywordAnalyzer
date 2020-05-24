@@ -1,8 +1,8 @@
 // https://www.npmjs.com/package/google-trends-api#interestovertime
 
 import * as googleTrends from 'google-trends-api'
-import {mapAveragesToKeywords, toRawKeywords} from './keywords'
 import {IKeyword, IKeywordBatches, ITrendsResultRaw} from '../types'
+import {mapAveragesToKeywords, toRawKeywords} from './keywords'
 
 const dateNow = new Date(Date.now())
 const date12MonthAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1))
@@ -30,6 +30,7 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
   const mergedAvgs = mergeTrendBatchAvgs(batchAverages)
 
   return mapAveragesToKeywords(mergedAvgs, keywords)
+    .sort((a, b) => b.normalizedTrend - a.normalizedTrend)
 }
 
 export const callTrendsApi = async (keywords: IKeyword[]) => {

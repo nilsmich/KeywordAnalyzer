@@ -9,7 +9,7 @@
   },
   {
     "keyword": "reiterladen",
-    "normalizedTrend": 58.764705882352935
+    "normalizedTrend": 60
   },
   {
     "keyword": "zubehör pferde",
@@ -32,12 +32,12 @@
     "normalizedTrend": 41.236363636363635
   },
   {
-    "keyword": "reitbedarf",
-    "normalizedTrend": 38.11764705882353
-  },
-  {
     "keyword": "reitgeschäft",
     "normalizedTrend": 37.30909090909091
+  },
+  {
+    "keyword": "reitbedarf",
+    "normalizedTrend": 37.199999999999996
   },
   {
     "keyword": "fahrsport",
@@ -61,11 +61,11 @@
   },
   {
     "keyword": "reiterbedarf",
-    "normalizedTrend": 15.88235294117647
+    "normalizedTrend": 16.8
   },
   {
     "keyword": "reitausrüstung",
-    "normalizedTrend": 11.117647058823529
+    "normalizedTrend": 13.2
   },
   {
     "keyword": "reitsportgeschäfte",

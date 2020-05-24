@@ -2,7 +2,7 @@
 
 import * as googleTrends from 'google-trends-api'
 import {mapAveragesToKeywords, toRawKeywords} from './keywords'
-import {IKeyword, IKeywordBatches, ITrendsResultRaw} from './types'
+import {IKeyword, IKeywordBatches, ITrendsResultRaw} from '../types'
 
 const dateNow = new Date(Date.now())
 const date12MonthAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1))
@@ -21,13 +21,14 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
   const batches: IKeywordBatches = batchKeywords(keywords)
   const batchAverages: number[][] = []
 
-  for (let batch of batches.batches) {
+  for (const batch of batches.batches) {
     batchAverages.push(
       (await callTrendsApi([batches.referenceKw, ...batch])).averages
     )
   }
 
   const mergedAvgs = mergeTrendBatchAvgs(batchAverages)
+
   return mapAveragesToKeywords(mergedAvgs, keywords)
 }
 
@@ -65,7 +66,7 @@ const batchKeywords = (keywords: IKeyword[]) => {
 
   return {
     referenceKw: referenceKeyword,
-    batches: batches
+    batches
   } as IKeywordBatches
 }
 

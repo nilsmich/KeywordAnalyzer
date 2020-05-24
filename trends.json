@@ -1,87 +1,87 @@
 [
   {
     "keyword": "reitsport",
-    "normalizedTrend": 1332
+    "normalizedTrend": 1192.3333333333333
   },
   {
     "keyword": "pferdesport",
-    "normalizedTrend": 639
+    "normalizedTrend": 579.8333333333333
   },
   {
     "keyword": "reiterladen",
-    "normalizedTrend": 60
+    "normalizedTrend": 54.44444444444444
   },
   {
     "keyword": "zubehör pferde",
-    "normalizedTrend": 54
+    "normalizedTrend": 49
   },
   {
     "keyword": "pferdezubehör",
-    "normalizedTrend": 52
+    "normalizedTrend": 46
   },
   {
     "keyword": "pferdezubehör",
-    "normalizedTrend": 45
+    "normalizedTrend": 40.83333333333333
   },
   {
     "keyword": "reitshop",
-    "normalizedTrend": 41.236363636363635
+    "normalizedTrend": 37.418181818181814
   },
   {
     "keyword": "reitshop",
-    "normalizedTrend": 41.236363636363635
-  },
-  {
-    "keyword": "reitgeschäft",
-    "normalizedTrend": 37.30909090909091
+    "normalizedTrend": 36
   },
   {
     "keyword": "reitbedarf",
-    "normalizedTrend": 37.199999999999996
+    "normalizedTrend": 33.75555555555555
   },
   {
     "keyword": "fahrsport",
-    "normalizedTrend": 33.51724137931034
+    "normalizedTrend": 32
+  },
+  {
+    "keyword": "reitgeschäft",
+    "normalizedTrend": 32
   },
   {
     "keyword": "reitzubehör",
-    "normalizedTrend": 32.58620689655172
+    "normalizedTrend": 29.56896551724138
   },
   {
     "keyword": "pferdesachen",
-    "normalizedTrend": 26
-  },
-  {
-    "keyword": "reitsportartikel",
     "normalizedTrend": 23
   },
   {
+    "keyword": "reitsportartikel",
+    "normalizedTrend": 17
+  },
+  {
     "keyword": "pferdeshop",
-    "normalizedTrend": 18
+    "normalizedTrend": 16.333333333333332
   },
   {
     "keyword": "reiterbedarf",
-    "normalizedTrend": 16.8
+    "normalizedTrend": 15.244444444444444
   },
   {
     "keyword": "reitausrüstung",
-    "normalizedTrend": 13.2
-  },
-  {
-    "keyword": "reitsportgeschäfte",
-    "normalizedTrend": 8
+    "normalizedTrend": 11.977777777777776
   },
   {
     "keyword": "reitsportzubehör",
-    "normalizedTrend": 6.517241379310344
+    "normalizedTrend": 5.913793103448276
+  },
+  {
+    "keyword": "reitsportgeschäfte",
+    "normalizedTrend": 5
   },
   {
     "keyword": "reiterzubehör",
-    "normalizedTrend": 5.890909090909091
+    "normalizedTrend": 4
   },
   {
     "keyword": "pferdesportartikel",
-    "normalizedTrend": 2.793103448275862
+    "normalizedTrend": 2.5344827586206895
   },
   {
     "keyword": "reitsport zubehör",

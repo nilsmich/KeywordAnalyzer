@@ -1,0 +1,85 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react-hooks"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-console": false,
+    "import-name": false,
+    "react-hooks-nesting": true,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "arrays": "always"
+        },
+        "esSpecCompliant": true
+      }
+    ],
+    // lines
+    "one-line": [
+      true,
+      "check-catch",
+      "check-finally",
+      "check-else"
+    ],
+    "no-consecutive-blank-lines": [
+      true,
+      2
+    ],
+    "newline-before-return": true,
+    "eofline": true,
+    // whitespace
+    "no-trailing-whitespace": [
+      true,
+      "ignore-comments"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    // other
+    "unnecessary-else": true,
+    "import-spacing": true,
+    "align": [
+      true,
+      "parameters",
+      "arguments",
+      "statements",
+      "members",
+      "elements"
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    }
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts",
+      "**/__mocks__/**/*",
+      "**/*.js"
+    ]
+  }
+}

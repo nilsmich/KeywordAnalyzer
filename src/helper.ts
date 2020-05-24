@@ -1,4 +1,4 @@
-import {IKeyword, IKeywordBatches, ITrends} from './types'
+import {IKeyword, IKeywordBatches, ITrends} from '../types'
 import * as fs from 'fs'
 
 
@@ -6,7 +6,7 @@ export const avg = (trends: ITrends) => {
   const dataPointCount = trends.timelineData.length
   const avgs: number[] = new Array(getQueryCount(trends)).fill(0)
 
-  for (let trend of trends.timelineData) {
+  for (const trend of trends.timelineData) {
     trend.value.forEach((val, index) => {
       avgs[index] += val / dataPointCount
     })

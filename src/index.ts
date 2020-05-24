@@ -7,6 +7,7 @@ const main = async () => {
   const trends = (await callAllTrends(keywords))
     .sort((a, b) => b.normalizedTrend - a.normalizedTrend)
 
+  console.log(trends)
 
   writeJson(trends)
 }

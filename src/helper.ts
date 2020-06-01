@@ -2,7 +2,7 @@ import {promises as fs} from 'fs'
 import {ITrends} from '../types'
 
 
-export const avg = (trends: ITrends) => {
+export const calcAvg = (trends: ITrends) => {
   const dataPointCount = trends.timelineData.length
   const avgs: number[] = new Array(getQueryCount(trends)).fill(0)
 

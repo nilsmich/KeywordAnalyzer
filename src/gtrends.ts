@@ -19,7 +19,10 @@ export const gTrends = async (keywords: string[]) => {
     const json = JSON.parse(str).default
 
     // console.log('successfully fetched data from Google Trends Api. Keywords: ', keywords)
-    return json as ITrends
+    return {
+      timelineData: json.timelineData,
+      averagesRounded: json.averages,
+    } as ITrends
   } catch (e) {
     console.log('[!] Failed fetching data from Google Trends Api for keywords: ', keywords, ' - Error message: ', e)
   }

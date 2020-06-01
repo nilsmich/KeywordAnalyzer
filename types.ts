@@ -10,7 +10,7 @@ export interface IKeywordBatches {
 
 export interface ITrends {
   timelineData: IDataPoint[]
-  averages: number[]
+  averagesRounded: number[]
 }
 
 interface IDataPoint {

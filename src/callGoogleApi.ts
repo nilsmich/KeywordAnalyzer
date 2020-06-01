@@ -1,7 +1,7 @@
 // https://www.npmjs.com/package/google-trends-api#interestovertime
 
 import {IKeyword, IKeywordBatches} from '../types'
-import {wait} from './helper'
+import {calcAvg, wait} from './helper'
 import {mapAveragesToKeywords, toRawKeywords} from './keywords'
 import {gTrends} from './gtrends'
 
@@ -18,13 +18,14 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
     const apiBatchResult = await callTrendsApi([batches.referenceKw, ...rawKeywords])
     await wait(100) // throttle API calls
 
-    if (!apiBatchResult?.averages) {
+    if (!apiBatchResult?.averagesRounded) {
       console.log('apiBatchResult', apiBatchResult)
     }
     console.log([batches.referenceKw, ...rawKeywords])
-    console.log(apiBatchResult.averages)
+    console.log(apiBatchResult.averagesRounded)
+
     batchAverages.push(
-      apiBatchResult.averages
+      calcAvg(apiBatchResult)
     )
   }
 
@@ -45,7 +46,7 @@ export const callTrendsApi = async (keywords: string[]) => {
 
   const results = await gTrends(keywords)
 
-  if (!results?.averages || !results?.timelineData) {
+  if (!results?.averagesRounded || !results?.timelineData) {
     return null
   }
 

@@ -1,90 +1,102 @@
 [
   {
     "keyword": "reitsport",
-    "normalizedTrend": 1332
+    "normalizedTrend": 1356.180555555556
   },
   {
     "keyword": "pferdesport",
-    "normalizedTrend": 639
+    "normalizedTrend": 775.3166623644814
   },
   {
     "keyword": "reiterladen",
-    "normalizedTrend": 60
+    "normalizedTrend": 61.88139646821697
   },
   {
     "keyword": "zubehör pferde",
-    "normalizedTrend": 54
+    "normalizedTrend": 57.28846153846153
   },
   {
     "keyword": "pferdezubehör",
-    "normalizedTrend": 52
+    "normalizedTrend": 55.75051626226123
   },
   {
     "keyword": "reitshop",
-    "normalizedTrend": 41.236363636363635
+    "normalizedTrend": 42.78952991452992
   },
   {
     "keyword": "reitgeschäft",
-    "normalizedTrend": 37.241379310344826
+    "normalizedTrend": 39.21153846153845
   },
   {
     "keyword": "reitbedarf",
-    "normalizedTrend": 37.199999999999996
-  },
-  {
-    "keyword": "fahrsport",
-    "normalizedTrend": 33.51724137931034
+    "normalizedTrend": 36.67307692307692
   },
   {
     "keyword": "reitzubehör",
-    "normalizedTrend": 32.58620689655172
+    "normalizedTrend": 36.36538461538461
+  },
+  {
+    "keyword": "fahrsport",
+    "normalizedTrend": 33.80769230769231
   },
   {
     "keyword": "pferdesachen",
-    "normalizedTrend": 26
+    "normalizedTrend": 27.634615384615383
   },
   {
     "keyword": "reitsportartikel",
-    "normalizedTrend": 23
-  },
-  {
-    "keyword": "pferdeshop",
-    "normalizedTrend": 18
+    "normalizedTrend": 23.269230769230777
   },
   {
     "keyword": "reiterbedarf",
-    "normalizedTrend": 16.8
+    "normalizedTrend": 22.87505640624531
+  },
+  {
+    "keyword": "pferdeshop",
+    "normalizedTrend": 20.403846153846164
   },
   {
     "keyword": "reitausrüstung",
-    "normalizedTrend": 13.2
+    "normalizedTrend": 12.596153846153845
   },
   {
     "keyword": "reitsportgeschäfte",
-    "normalizedTrend": 8
+    "normalizedTrend": 9.788461538461538
   },
   {
     "keyword": "reitsportzubehör",
-    "normalizedTrend": 6.517241379310344
+    "normalizedTrend": 5.884615384615384
   },
   {
     "keyword": "reiterzubehör",
-    "normalizedTrend": 5.586206896551724
+    "normalizedTrend": 5.538461538461538
   },
   {
     "keyword": "pferdesportartikel",
-    "normalizedTrend": 2.793103448275862
+    "normalizedTrend": 3.26813371192566
+  },
+  {
+    "keyword": "western zubehör",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitzubehör günstig",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitsportzubehör online shop",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitsportartikel online",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitsport zubehör shop",
+    "normalizedTrend": 0
   },
   {
     "keyword": "reitsport zubehör",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitsport geschäft",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reithelm online kaufen",
     "normalizedTrend": 0
   },
   {
@@ -100,7 +112,55 @@
     "normalizedTrend": 0
   },
   {
+    "keyword": "reitsport online shop",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitsport geschäft",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitshop online",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitsachen online kaufen",
+    "normalizedTrend": 0
+  },
+  {
     "keyword": "reitsachen kaufen",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reithelm online kaufen",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitershops",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reiterbedarf online",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reiter zubehör",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reiter shop",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitbedarf online",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "reitartikel outlet",
+    "normalizedTrend": 0
+  },
+  {
+    "keyword": "polo reitsport zubehör",
     "normalizedTrend": 0
   },
   {
@@ -116,11 +176,7 @@
     "normalizedTrend": 0
   },
   {
-    "keyword": "pferde shop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitsportartikel online",
+    "keyword": "pferdesachen günstig kaufen",
     "normalizedTrend": 0
   },
   {
@@ -132,23 +188,15 @@
     "normalizedTrend": 0
   },
   {
-    "keyword": "pferde online shop",
+    "keyword": "pferde zubehör",
     "normalizedTrend": 0
   },
   {
-    "keyword": "reitzubehör günstig",
+    "keyword": "pferde shop",
     "normalizedTrend": 0
   },
   {
-    "keyword": "reitshop online",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitbedarf online",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "pferdesachen günstig kaufen",
+    "keyword": "pferde produkte",
     "normalizedTrend": 0
   },
   {
@@ -156,59 +204,11 @@
     "normalizedTrend": 0
   },
   {
-    "keyword": "reitsportzubehör online shop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitsport zubehör shop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitsachen online kaufen",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reiterbedarf online",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitartikel outlet",
+    "keyword": "pferde online shop",
     "normalizedTrend": 0
   },
   {
     "keyword": "online pferdeshop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "polo reitsport zubehör",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "western zubehör",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitsport online shop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reitershops",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reiter zubehör",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "reiter shop",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "pferde zubehör",
-    "normalizedTrend": 0
-  },
-  {
-    "keyword": "pferde produkte",
     "normalizedTrend": 0
   }
 ]

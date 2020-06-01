@@ -6,9 +6,10 @@ import {mapAveragesToKeywords, toRawKeywords} from './keywords'
 import {gTrends} from './gtrends'
 
 const BATCH_SIZE = 5 // GoogleTrends can only handle 5 at the time
+const REFERENCE_KEYWORD = 'pferdesportartikel'
 
 export const callAllTrends = async (keywords: IKeyword[]) => {
-  const batches: IKeywordBatches = batchKeywords('zubehör pferde', keywords)
+  const batches: IKeywordBatches = batchKeywords(REFERENCE_KEYWORD, keywords)
   const batchAverages: number[][] = []
 
   for (const batch of batches.batches) {

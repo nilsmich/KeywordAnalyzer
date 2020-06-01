@@ -19,7 +19,6 @@
     "g-trends": "^0.0.8",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
-    "mf-google-trends-api": "^1.0.5",
     "ts-jest": "^26.1.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^6.1.2",

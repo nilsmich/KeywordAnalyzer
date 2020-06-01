@@ -1,9 +1,9 @@
 // https://www.npmjs.com/package/google-trends-api#interestovertime
 
-import * as googleTrends from 'mf-google-trends-api'
-import {IKeyword, IKeywordBatches, ITrendsResultRaw} from '../types'
+import {IKeyword, IKeywordBatches} from '../types'
 import {wait} from './helper'
 import {mapAveragesToKeywords, toRawKeywords} from './keywords'
+import {gTrends} from './lib/g-trends/gtrends'
 
 const dateNow = new Date(Date.now())
 const date12MonthAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1))
@@ -14,8 +14,8 @@ const CONFIG = {
   geo: 'DE',
   startTime: dateNow, // default: Date('2004-01-01')
   endTime: date12MonthAgo // default: Date(Date.now())
-
 }
+
 const BATCH_SIZE = 5 // GoogleTrends can only handle 5 at the time
 
 export const callAllTrends = async (keywords: IKeyword[]) => {
@@ -28,7 +28,7 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
     console.log(rawKeywords)
 
     const apiBatchResult = await callTrendsApi([batches.referenceKw, ...rawKeywords])
-    await wait(2000) // throttle API calls
+    await wait(1000) // throttle API calls
 
     if (!apiBatchResult?.averages) {
       console.log('apiBatchResult', apiBatchResult)
@@ -51,23 +51,16 @@ export const callTrendsApi = async (keywords: string[]) => {
     throw new Error('wrong amount of query strings')
   }
 
-  try {
-    let resultString: string
-    resultString = await googleTrends.interestOverTime({keyword: keywords, ...CONFIG})
-    console.log('ERROR on resultString: ', resultString)
+  // resultString = await googleTrends.interestOverTime({keyword: keywords, ...CONFIG})
+  // const results = JSON.parse(resultString) as ITrendsResultRaw
 
-    const results = JSON.parse(resultString) as ITrendsResultRaw
-    console.log('ERROR on results: ', results)
+  const results = await gTrends(keywords)
 
-    if (!results?.default?.averages || !results?.default?.timelineData) {
-      return null
-    }
-
-    return results.default
-  } catch (e) {
-    console.log('ERROR on keyword batch: ', keywords)
-    console.log('ERROR Message: ', e)
+  if (!results?.averages || !results?.timelineData) {
+    return null
   }
+
+  return results
 }
 
 export const batchKeywords = (referenceKeyword: string, keywords: IKeyword[]) => {

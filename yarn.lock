@@ -2635,11 +2635,6 @@ merge-stream@^2.0.0:
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
   integrity sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
 
-mf-google-trends-api@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/mf-google-trends-api/-/mf-google-trends-api-1.0.5.tgz#f87b1fd520840725a86d46f92409046991b40b35"
-  integrity sha512-JERJ2xEjZ7cFom7N28MHobX1qGj7+lkMQUBMoI9iIbXuRLFWvk7sp8L9Uxne2Koi3tNCs3ev0Jy5hsk5xbcs3g==
-
 micromatch@4.x, micromatch@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"

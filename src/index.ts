@@ -1,6 +1,7 @@
 import {callAllTrends} from './callGoogleApi'
 import {writeJson} from './helper'
 import {initKeywords} from './keywords'
+import {gTrends} from './gtrends'
 
 const keyworsRaw = `
 zubehör pferde
@@ -68,6 +69,10 @@ fahrsport
 const main = async () => {
   const keywords = initKeywords(keyworsRaw)
   const trends = (await callAllTrends(keywords))
+
+  // const trends  = await gTrends(
+  //   ['reitsport', 'pferdesport', 'pferdezubehör', 'zubehör pferde', 'reiter']
+  // )
 
   console.log(trends)
 

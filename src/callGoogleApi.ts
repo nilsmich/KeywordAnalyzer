@@ -3,18 +3,7 @@
 import {IKeyword, IKeywordBatches} from '../types'
 import {wait} from './helper'
 import {mapAveragesToKeywords, toRawKeywords} from './keywords'
-import {gTrends} from './lib/g-trends/gtrends'
-
-const dateNow = new Date(Date.now())
-const date12MonthAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1))
-console.log(date12MonthAgo)
-
-const CONFIG = {
-  hl: 'de',
-  geo: 'DE',
-  startTime: dateNow, // default: Date('2004-01-01')
-  endTime: date12MonthAgo // default: Date(Date.now())
-}
+import {gTrends} from './gtrends'
 
 const BATCH_SIZE = 5 // GoogleTrends can only handle 5 at the time
 
@@ -25,15 +14,15 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
   for (const batch of batches.batches) {
     const rawKeywords = toRawKeywords(batch)
     console.log('\n\n---------\nbatch index from api: ', batches.batches.indexOf(batch))
-    console.log(rawKeywords)
 
     const apiBatchResult = await callTrendsApi([batches.referenceKw, ...rawKeywords])
-    await wait(1000) // throttle API calls
+    await wait(100) // throttle API calls
 
     if (!apiBatchResult?.averages) {
       console.log('apiBatchResult', apiBatchResult)
     }
-
+    console.log([batches.referenceKw, ...rawKeywords])
+    console.log(apiBatchResult.averages)
     batchAverages.push(
       apiBatchResult.averages
     )

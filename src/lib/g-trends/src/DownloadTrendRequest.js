@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 const querystring = require('querystring');
 
 class DownloadTrendRequest {
-
     constructor(widget) {
         this.request = {
             url: 'https://trends.google.com/trends/api/widgetdata/multiline',
@@ -12,7 +11,7 @@ class DownloadTrendRequest {
             headers: {
                 'accept': 'application/json, text/plain, */*',
                 'accept-encoding': 'gzip, deflate, br',
-                'accept-language': 'de-DE,en;q=0.8,he;q=0.6,ru;q=0.4,es;q=0.2,de;q=0.2,la;q=0.2',
+                'accept-language': 'en-EN,en;q=0.8,he;q=0.6,ru;q=0.4,es;q=0.2,de;q=0.2,la;q=0.2',
                 'cache-control': 'no-cache',
                 'cookie': '',
                 'pragma': 'no-cache',
@@ -20,7 +19,7 @@ class DownloadTrendRequest {
                 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
             },
             qs: {
-                hl: 'de-DE',
+                hl: 'en-EN',
                 tz: '-180',
                 req: JSON.stringify(widget.request),
                 token: widget.token,

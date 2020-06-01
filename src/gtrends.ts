@@ -1,13 +1,17 @@
-import {ITrends} from '../../../types'
-import {ExploreTrendRequest} from './index'
+import {ITrends} from '../types'
+import {ExploreTrendRequest} from './lib/g-trends/index'
+
+const geo = 'DE'
 
 export const gTrends = async (keywords: string[]) => {
   const explorer = new ExploreTrendRequest()
 
   try {
-    const req = explorer.past12Months()
+    const req = explorer
+      .past12Months() // could be made configurable
+
     keywords.forEach(kw => {
-      req.addKeyword(kw)
+      req.addKeyword(kw, geo)
     })
     const data = await req.download()
 

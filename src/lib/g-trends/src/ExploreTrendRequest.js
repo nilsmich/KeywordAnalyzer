@@ -6,7 +6,6 @@ const querystring = require('querystring');
 const DownloadTrendRequest = require('./DownloadTrendRequest');
 
 class ExploreTrendRequest {
-
     constructor() {
         this.filters = {
             comparisonItem: [],
@@ -24,7 +23,7 @@ class ExploreTrendRequest {
             headers: {
                 'accept': 'application/json, text/plain, */*',
                 'accept-encoding': 'gzip, deflate, br',
-                'accept-language': 'de-DE,en;q=0.8,he;q=0.6,ru;q=0.4,es;q=0.2,de;q=0.2,la;q=0.2',
+                'accept-language': 'en-EN,en;q=0.8,he;q=0.6,ru;q=0.4,es;q=0.2,de;q=0.2,la;q=0.2',
                 'cache-control': 'no-cache',
                 'cookie': '',
                 'pragma': 'no-cache',
@@ -32,7 +31,7 @@ class ExploreTrendRequest {
                 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'
             },
             qs: {
-                hl: 'de-DE',
+                hl: 'en-EN',
                 tz: '-180',
                 req: null,
                 tz: '-180'
@@ -48,7 +47,7 @@ class ExploreTrendRequest {
 
     /**
      * Choose a search provider.
-     * 
+     *
      * @param {string} engine
      *
      * @return {ExploreTrendRequest}
@@ -155,7 +154,6 @@ class ExploreTrendRequest {
 
     /**
      * An alias method for the `addKeyword`
-     * 
      * @param {string} keyword
      * @param {string} geo
      *
@@ -166,8 +164,7 @@ class ExploreTrendRequest {
     }
 
     /**
-     * Download the CSV output for the current trend query.
-     * 
+     * Download the output for the current trend query.
      * @return {Promise}
      */
     download() {
@@ -183,7 +180,6 @@ class ExploreTrendRequest {
 
     /**
      * A valid explore request need to have the same time property on each comparison keyword.
-     * 
      * @return {ExploreTrendRequest}
      */
     normalizeRequestTimeFormat() {
@@ -198,7 +194,6 @@ class ExploreTrendRequest {
     /**
      * Google blocks requests with invalid cookies
      * This method makes a request in order to get a valid cookie.
-     * 
      * @returns {Promise}
      */
     resolveGoogleGuestCookie() {
@@ -215,7 +210,6 @@ class ExploreTrendRequest {
 
     /**
      * Resolve the download request details in a JSON form.
-     * 
      * @return {Promise}
      */
     resolveDownloadRequestDetails() {

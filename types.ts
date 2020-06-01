@@ -8,10 +8,6 @@ export interface IKeywordBatches {
   batches: IKeyword[][]
 }
 
-export interface ITrendsResultRaw {
-  default: ITrends
-}
-
 export interface ITrends {
   timelineData: IDataPoint[]
   averages: number[]

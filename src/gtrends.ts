@@ -1,5 +1,5 @@
 import {ITrends} from '../types'
-import {ExploreTrendRequest} from './lib/g-trends/index'
+import {ExploreTrendRequest} from '../lib/g-trends/index'
 
 const geo = 'DE'
 

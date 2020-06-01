@@ -1,6 +1,6 @@
 // https://www.npmjs.com/package/google-trends-api#interestovertime
 
-import * as googleTrends from 'google-trends-api'
+import * as googleTrends from 'mf-google-trends-api'
 import {IKeyword, IKeywordBatches, ITrendsResultRaw} from '../types'
 import {wait} from './helper'
 import {mapAveragesToKeywords, toRawKeywords} from './keywords'
@@ -23,11 +23,16 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
   const batchAverages: number[][] = []
 
   for (const batch of batches.batches) {
-    console.log('batch index from api: ', batches.batches.indexOf(batch))
     const rawKeywords = toRawKeywords(batch)
+    console.log('\n\n---------\nbatch index from api: ', batches.batches.indexOf(batch))
+    console.log(rawKeywords)
 
     const apiBatchResult = await callTrendsApi([batches.referenceKw, ...rawKeywords])
-    await wait(3000) // throttle API calls
+    await wait(2000) // throttle API calls
+
+    if (!apiBatchResult?.averages) {
+      console.log('apiBatchResult', apiBatchResult)
+    }
 
     batchAverages.push(
       apiBatchResult.averages
@@ -40,6 +45,7 @@ export const callAllTrends = async (keywords: IKeyword[]) => {
     .sort((a, b) => b.normalizedTrend - a.normalizedTrend)
 }
 
+
 export const callTrendsApi = async (keywords: string[]) => {
   if (keywords.length <= 0 || keywords.length > 5) {
     throw new Error('wrong amount of query strings')
@@ -48,10 +54,14 @@ export const callTrendsApi = async (keywords: string[]) => {
   try {
     let resultString: string
     resultString = await googleTrends.interestOverTime({keyword: keywords, ...CONFIG})
-    // console.log('ERROR on resultString: ',resultString)
+    console.log('ERROR on resultString: ', resultString)
 
     const results = JSON.parse(resultString) as ITrendsResultRaw
-    // console.log('ERROR on results: ',results)
+    console.log('ERROR on results: ', results)
+
+    if (!results?.default?.averages || !results?.default?.timelineData) {
+      return null
+    }
 
     return results.default
   } catch (e) {

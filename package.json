@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
+    "devWatch": "ts-node-dev --respawn src/index.ts --trace-warnings",
     "trends": "ts-node src/index.ts",
     "test": "jest",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
@@ -15,13 +16,15 @@
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
-    "google-trends-api": "^4.9.0",
+    "g-trends": "^0.0.8",
     "husky": "^4.2.5",
-    "ts-jest": "^26.0.0",
+    "jest": "^26.0.1",
+    "mf-google-trends-api": "^1.0.5",
+    "ts-jest": "^26.1.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^6.1.2",
     "tslint-react-hooks": "^2.2.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   },
   "husky": {
     "hooks": {

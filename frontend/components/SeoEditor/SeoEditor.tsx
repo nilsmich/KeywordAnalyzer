@@ -1,4 +1,5 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useEffect, useState} from 'react'
+import {useDebouncedCallback} from 'use-debounce'
 import {SeoDisplay} from '../SeoDisplay/SeoDisplay'
 import {Textarea} from '../textarea/textarea'
 import {IKeywordSuggestion, UpdateAlternateSeoTerm} from '../types'
@@ -11,6 +12,8 @@ interface ISeoText {
 // todo no params da diese aus der Text area kommen
 export const SeoEditor: FC<ISeoText> = ({textObj}) => {
   const [keywordSuggestions, setKeywordSuggestions] = useState(textObj)
+  const [text, setText] = useState('')
+
 
   const updateAlternateSeoTerm: UpdateAlternateSeoTerm = (newlySelectedWord: string, termIndex: number) => {
     const updated = [...keywordSuggestions]
@@ -18,16 +21,20 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
     setKeywordSuggestions(updated)
     copyToClipboard(newlySelectedWord)
   }
-  const onChange = (text: string) => {
-    console.log(text)
-    // debounce
-    // todo fetch API with text
-    // replace textObj
-  }
+
+  const [onChangeInputText] = useDebouncedCallback((value: string) => {
+    setText(value)
+  }, 1000)
+
+  useEffect(() => {
+    console.log('api call for: ', text)
+    // call api ier
+  }, [text])
+
 
   return (
     <>
-      <Textarea value={toText(keywordSuggestions)} onChange={onChange} />
+      <Textarea value={toText(keywordSuggestions)} onChange={onChangeInputText} />
       <SeoDisplay textObj={textObj} updateAlternateSeoTerm={updateAlternateSeoTerm} />
     </>)
 }

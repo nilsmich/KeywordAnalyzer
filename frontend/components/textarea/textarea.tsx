@@ -3,10 +3,11 @@ import style from './textarea.module.scss'
 
 interface ITextarea {
   value: string
+  onChange: (text: string) => void
 }
 
 
-export const Textarea: FC<ITextarea> = ({value}) => {
+export const Textarea: FC<ITextarea> = ({value, onChange}) => {
   const [text, setText] = useState(value)
 
   useEffect(() => {
@@ -15,13 +16,14 @@ export const Textarea: FC<ITextarea> = ({value}) => {
 
   // todo: better useMomo
 
-  const onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void = (event) => {
+  const updateText: (event: ChangeEvent<HTMLTextAreaElement>) => void = (event) => {
     setText(event.target.value)
+    onChange(event.target.value)
   }
 
   return (
     <form>
-      <textarea value={text} onChange={onChange} className={style.textarea} />
+      <textarea value={text} onChange={updateText} className={style.textarea} />
     </form>
   )
 }

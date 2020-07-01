@@ -13,7 +13,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-textarea-highlight": "sudodoki/react-textarea-highlight",
-    "sass": "^1.26.9"
+    "sass": "^1.26.9",
+    "use-debounce": "^3.4.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

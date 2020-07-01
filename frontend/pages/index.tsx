@@ -1,4 +1,5 @@
 import React from 'react'
+import {Layout} from '../components/Layout/layout'
 import {SeoEditor} from '../components/SeoEditor/SeoEditor'
 import {IKeywordSuggestion} from '../components/types'
 
@@ -16,7 +17,9 @@ const testMock: IKeywordSuggestion[] = [
 
 
 const IndexPage = () => (
-  <SeoEditor textObj={testMock} />
+  <Layout>
+    <SeoEditor textObj={testMock} />
+  </Layout>
 )
 
 export default IndexPage

@@ -12,8 +12,6 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
   const [keywordSuggestions, setKeywordSuggestions] = useState(textObj)
 
   const updateAlternateSeoTerm: UpdateAlternateSeoTerm = (newlySelectedWord: string, termIndex: number) => {
-    console.log(newlySelectedWord)
-    console.log(termIndex)
     const updated = [...keywordSuggestions]
     updated[termIndex].selected = newlySelectedWord
     setKeywordSuggestions(updated)

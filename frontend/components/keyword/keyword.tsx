@@ -1,4 +1,5 @@
 import {FC, useState} from 'react'
+import {RelevanceMarker} from '../relevanceMarker/relevanceMarker'
 import {IGoogleTrendsKW, IKeywordSuggestion} from '../types'
 import style from './keyword.module.scss'
 
@@ -10,10 +11,6 @@ interface IKeyword {
 
 export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
   const [isHover, setIsHover] = useState(false)
-
-  /* useEffect(()=> {
-     console.log('isHover', isHover)
-   }, [isHover])*/
 
   return (
     <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
@@ -35,7 +32,8 @@ const Suggestion: FC<ISuggestions> = ({suggestions, onChange}) => {
         onChange(sug.keyword)
       }}>
         {sug.keyword}
-        <span className={style.normalizedTrend}>{sug.normalizedTrend}</span>
+
+        <RelevanceMarker normalizedTrend={sug.normalizedTrend || 0} />
       </li>
     )}
   </ul>

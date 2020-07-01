@@ -1,5 +1,6 @@
-import {FC, useState} from 'react'
+import React, {FC, useState} from 'react'
 import {SeoDisplay} from '../SeoDisplay/SeoDisplay'
+import {Textarea} from '../textarea/textarea'
 import {IKeywordSuggestion, OnChange} from '../types'
 
 interface ISeoText {
@@ -18,11 +19,11 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
 
   return (
     <>
-      <div>{toText(textObj)}</div>
+      <Textarea value={toText(keywordSuggestions)}  />
       <SeoDisplay textObj={textObj} onChange={onChange} />
     </>)
 }
 
 const toText = (textObj: IKeywordSuggestion[]) => {
-  return textObj.map(t => t.selected)
+  return textObj.map(t => t.selected).join('')
 }

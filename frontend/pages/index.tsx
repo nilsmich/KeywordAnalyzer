@@ -1,4 +1,4 @@
-import {SeoText} from '../components/SeoText/SeoText'
+import {SeoEditor} from '../components/SeoEditor/SeoText'
 import {IKeywordSuggestion} from '../components/types'
 
 const testMock: IKeywordSuggestion[] = [
@@ -15,7 +15,7 @@ const testMock: IKeywordSuggestion[] = [
 
 
 const IndexPage = () => (
-  <SeoText textObj={testMock} />
+  <SeoEditor textObj={testMock} />
 )
 
 export default IndexPage

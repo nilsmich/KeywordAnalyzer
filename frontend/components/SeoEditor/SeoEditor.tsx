@@ -8,7 +8,7 @@ interface ISeoText {
 }
 
 
-export const SeoText: FC<ISeoText> = ({textObj}) => {
+export const SeoEditor: FC<ISeoText> = ({textObj}) => {
   const [keywordSuggestions, setKeywordSuggestions] = useState(textObj)
 
   const onChange: OnChange = (newKeyword: string, arrIndex: number, googleTrendsKwIndex: number) => {

@@ -2,6 +2,9 @@
     background: #e0ffb7;
     position: relative;
     display: inline-block;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .synonyms{

@@ -13,20 +13,25 @@ export const SeoText: FC<ISeoText> = ({textObj}) => {
 
   const onChange: OnChange = (newKeyword: string, arrIndex: number, googleTrendsKwIndex: number) => {
     console.log(newKeyword, arrIndex, googleTrendsKwIndex)
-    console.log(keywordSuggestions)
-    const updated = keywordSuggestions
+    const updated = [...keywordSuggestions]
     updated[arrIndex].selected = newKeyword
     setKeywordSuggestions(updated)
   }
 
   return (
-    <div className={style.textDisplayArea}>
-      {keywordSuggestions.map((word, index) =>
-        <Word kwSug={word} arrIndex={index} key={index + word.selected} onChange={onChange} />
-      )}
-    </div>)
+    <>
+      <div className={style.textDisplayArea}>
+        {keywordSuggestions.map((word, index) =>
+          <Word kwSug={word} arrIndex={index} key={index + word.selected} onChange={onChange} />
+        )}
+      </div>
+      <div>{toText(keywordSuggestions)}</div>
+    </>)
 }
 
+const toText = (textObj: IKeywordSuggestion[]) => {
+  return textObj.map(t => t.selected)
+}
 
 interface IWord {
   kwSug: IKeywordSuggestion

@@ -1,5 +1,5 @@
 import {FC, useState} from 'react'
-import {IKeywordSuggestion, ISuggestion} from '../types'
+import {IKeywordSuggestion, IGoogleTrendsKW} from '../types'
 import style from './keyword.module.scss'
 
 interface IKeyword {
@@ -17,21 +17,21 @@ export const Keyword: FC<IKeyword> = ({keywordSuggestion}) => {
 
   return (
     <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      {keywordSuggestion.keyword}
-      {isHover && <Suggestion suggestions={keywordSuggestion.synonym} />}
+      {keywordSuggestion.selected}
+      {isHover && <Suggestion suggestions={keywordSuggestion.keywords} />}
     </span>)
 }
 
 
 interface ISuggestions {
-  suggestions: ISuggestion[]
+  suggestions: IGoogleTrendsKW[]
 }
 
 const Suggestion: FC<ISuggestions> = ({suggestions}) => {
   return <ul className={style.synonyms}>
     {suggestions.map((sug, index) =>
-      <li key={index} onClick={() => {console.log(sug.suggestion)}}>
-        {sug.suggestion}
+      <li key={index} onClick={() => {console.log(sug.keyword)}}>
+        {sug.keyword}
         <span className={style.normalizedTrend}>{sug.normalizedTrend}</span>
       </li>
     )}

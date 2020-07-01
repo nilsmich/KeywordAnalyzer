@@ -1,9 +1,9 @@
 export interface IKeywordSuggestion {
-  keyword: string
-  synonym: ISuggestion[]
+  selected: string
+  keywords: IGoogleTrendsKW[]
 }
 
-export interface ISuggestion {
-  suggestion: string
-  normalizedTrend: number
+export interface IGoogleTrendsKW {
+  keyword: string
+  normalizedTrend: number | null
 }

@@ -2,11 +2,13 @@ import {SeoText} from '../components/SeoText/SeoText'
 import {IKeywordSuggestion} from '../components/types'
 
 const testMock: IKeywordSuggestion[] = [
-  {keyword: 'Ich suche ein neues ', synonym: []},
+  {selected: 'Ich suche ein neues ', keywords: []},
   {
-    keyword: 'iPhone', synonym: [
-      {suggestion: 'Smartphone', normalizedTrend: 200},
-      {suggestion: 'Android', normalizedTrend: 300}
+    selected: 'iPhone',
+    keywords: [
+      {keyword: 'iPhone', normalizedTrend: 100},
+      {keyword: 'Smartphone', normalizedTrend: 200},
+      {keyword: 'Android', normalizedTrend: 300}
     ]
   }
 ]

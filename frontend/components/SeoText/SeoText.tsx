@@ -1,6 +1,6 @@
-import {FC, useEffect, useState} from 'react'
+import {FC, useState} from 'react'
 import {Keyword} from '../keyword/keyword'
-import {IKeywordSuggestion} from '../types'
+import {IKeywordSuggestion, OnChange} from '../types'
 import style from './seoText.module.scss'
 
 interface ISeoText {
@@ -9,26 +9,34 @@ interface ISeoText {
 
 
 export const SeoText: FC<ISeoText> = ({textObj}) => {
-  // const [keywordSuggestions, setKeywordSuggestions] = useState(textObj)
-  //
-  // const onChange(newKeyword: IKeywordSuggestion, arrIndex: number) => {
-  //   keywordSuggestions[arrIndex] = newKeyword
-  // }
+  const [keywordSuggestions, setKeywordSuggestions] = useState(textObj)
+
+  const onChange: OnChange = (newKeyword: string, arrIndex: number, googleTrendsKwIndex: number) => {
+    console.log(newKeyword, arrIndex, googleTrendsKwIndex)
+    console.log(keywordSuggestions)
+    const updated = keywordSuggestions
+    updated[arrIndex].selected = newKeyword
+    setKeywordSuggestions(updated)
+  }
 
   return (
     <div className={style.textDisplayArea}>
-      {textObj.map((word, index) => <Word kwSug={word} key={index + word.selected} />)}
+      {keywordSuggestions.map((word, index) =>
+        <Word kwSug={word} arrIndex={index} key={index + word.selected} onChange={onChange} />
+      )}
     </div>)
 }
 
 
 interface IWord {
   kwSug: IKeywordSuggestion
+  arrIndex: number
+  onChange: OnChange
 }
 
-const Word: FC<IWord> = ({kwSug}) => {
+const Word: FC<IWord> = ({kwSug, onChange, arrIndex}) => {
   if (kwSug.keywords.length > 0) {
-    return <Keyword keywordSuggestion={kwSug} />
+    return <Keyword keywordSuggestion={kwSug} arrIndex={arrIndex} onChange={onChange} />
   }
   return <>{kwSug.selected} </>
 }

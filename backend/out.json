@@ -1,0 +1,205 @@
+{
+  "responseElements": [
+    {
+      "keyWord": {
+        "keyword": "Hallo",
+        "normalizedTrend": 2.0000000000000013
+      },
+      "synonyms": [
+        {
+          "keyword": "guten Tag",
+          "normalizedTrend": 71.90196078431377
+        },
+        {
+          "keyword": "Zes",
+          "normalizedTrend": 4.019607843137255
+        },
+        {
+          "keyword": "hallihallo!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hallo!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hallöchen! (locker, leicht humorvoll)",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hallöle!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hi!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hoi!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "moin!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Servus!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Tach auch.",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Tag! (pragmatisch)",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Tagchen",
+          "normalizedTrend": 18.235294117647058
+        },
+        {
+          "keyword": "Zeawas",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Ausgelassenheit",
+          "normalizedTrend": 27.52941176470588
+        },
+        {
+          "keyword": "Jubel, Trubel, Heiterkeit",
+          "normalizedTrend": 1.0980392156862746
+        },
+        {
+          "keyword": "Klamauk",
+          "normalizedTrend": 0.058823529411764705
+        },
+        {
+          "keyword": "Trubel",
+          "normalizedTrend": 0.7647058823529415
+        },
+        {
+          "keyword": "Hallo",
+          "normalizedTrend": 89.6078431372549
+        },
+        {
+          "keyword": "Remmidemmi",
+          "normalizedTrend": 0.5686274509803921
+        },
+        {
+          "keyword": "Du solltest dich mal reden hören!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "hallo?!",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Hörst du dir eigentlich selber zu?",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Was erlaubst du dir?",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Weißt du überhaupt, was du da sagst?",
+          "normalizedTrend": 0
+        }
+      ]
+    },
+    {
+      "keyword": {
+        "keyword": "das",
+        "normalizedTrend": 57.27450980392158
+      },
+      "synonyms": []
+    },
+    {
+      "keyword": {
+        "keyword": "ist",
+        "normalizedTrend": 80.17647058823528
+      },
+      "synonyms": []
+    },
+    {
+      "keyword": {
+        "keyword": "ein",
+        "normalizedTrend": 43.431372549019606
+      },
+      "synonyms": []
+    },
+    {
+      "keyWord": {
+        "keyword": "Marketing",
+        "normalizedTrend": 12.333333333333321
+      },
+      "synonyms": [
+        {
+          "keyword": "Absatzwirtschaft",
+          "normalizedTrend": 0.0392156862745098
+        },
+        {
+          "keyword": "Marketing",
+          "normalizedTrend": 80.50980392156863
+        }
+      ]
+    },
+    {
+      "keyWord": {
+        "keyword": "text",
+        "normalizedTrend": 68.0980392156863
+      },
+      "synonyms": [
+        {
+          "keyword": "Liedertext",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Liedtext",
+          "normalizedTrend": 1.9803921568627463
+        },
+        {
+          "keyword": "Lyrics",
+          "normalizedTrend": 86.6470588235294
+        },
+        {
+          "keyword": "Songtext",
+          "normalizedTrend": 9.3921568627451
+        },
+        {
+          "keyword": "Text",
+          "normalizedTrend": 68.0980392156863
+        },
+        {
+          "keyword": "Literatur",
+          "normalizedTrend": 3.5294117647058822
+        },
+        {
+          "keyword": "Schriftwerk",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "(eine) Schrift",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Artikel (journal.)",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Beitrag",
+          "normalizedTrend": 59.01960784313726
+        },
+        {
+          "keyword": "(in einer Zeitung publizierter) Text",
+          "normalizedTrend": 0
+        },
+        {
+          "keyword": "Zeitungsartikel",
+          "normalizedTrend": 7.019607843137258
+        }
+      ]
+    }
+  ]
+}

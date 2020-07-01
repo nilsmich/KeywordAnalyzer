@@ -1,14 +1,10 @@
 import {IKeyword} from '../types'
+import { stopwordsDe } from './stopwords-de'
 
-export const initKeywords = (rawKeywords: string): IKeyword[] => {
-  const rawKWArray = rawKeywords
-    .split('\n')
-    .map(kw => kw.trim())
-    .filter(kw => !!kw)
+export const initKeywords = (words: string[]): IKeyword[] => {
+  const uniqueKeyWords = words.filter((item, pos) => words.indexOf(item) === pos)
 
-  const uniqueKeyWords = new Set(rawKWArray)
-
-  return Array.from(uniqueKeyWords).map(kw => {
+  return uniqueKeyWords.map(kw => {
     const keyword: IKeyword = {
       keyword: kw,
       normalizedTrend: undefined
@@ -17,6 +13,16 @@ export const initKeywords = (rawKeywords: string): IKeyword[] => {
     return keyword
   })
 }
+
+export const tokenizeAndSanitize = (rawKeywords: string, separator: string): string[] => rawKeywords
+  .replace(',', '')
+  .replace('.', '')
+  .replace(';', '')
+  .replace('\'', '')
+  .replace('"', '')
+  .split(separator)
+  .map(kw => kw.trim())
+  .filter(kw => !!kw)
 
 export const toRawKeywords = (keywords: IKeyword[]): string[] => {
   return keywords.map(kw => kw.keyword)

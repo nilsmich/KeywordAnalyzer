@@ -1,82 +1,57 @@
 import {callAllTrends} from './callGoogleApi'
-import {writeJson} from './helper'
-import {initKeywords} from './keywords'
-import {gTrends} from './gtrends'
+import {initKeywords, tokenizeAndSanitize} from './keywords'
+import { getSynonyms } from './callOpenThesaurusApi'
+import { ISynonyms } from './ISynonyms'
+import { IKeyword } from '../types'
+import { IApiResponse, IApiResponseElement } from './IApiResponse'
+import { stopwordsDe } from './stopwords-de';
+import { writeJson } from './helper';
 
-const keywordsRaw = `
-zubehör pferde
-western zubehör
-reitzubehör günstig
-reitzubehör
-reitsportzubehör online shop
-reitsportzubehör
-reitsportgeschäfte
-reitsportartikel online
-reitsportartikel
-reitsport zubehör shop
-reitsport zubehör
-reitsport zubehör
-reitsport shops
-reitsport shop
-reitsport pferde
-reitsport online shop
-reitsport geschäft
-reitsport
-reitshop online
-reitshop
-reitshop
-reitsachen online kaufen
-reitsachen kaufen
-reithelm online kaufen
-reitgeschäft
-reiterzubehör
-reitershops
-reiterladen
-reiterbedarf online
-reiterbedarf
-reiter zubehör
-reiter shop
-reitbedarf online
-reitbedarf
-reitausrüstung
-reitartikel outlet
-polo reitsport zubehör
-pferdezubehör kaufen
-pferdezubehör kaufen
-pferdezubehör günstig
-pferdezubehör günstig
-pferdezubehör
-pferdezubehör
-pferdesportartikel
-pferdesportartikel
-pferdesport
-pferdeshop
-pferdesachen kaufen
-pferdesachen günstig kaufen
-pferdesachen günstig
-pferdesachen
-pferde zubehör kaufen
-pferde zubehör
-pferde shop
-pferde shop
-pferde produkte
-pferde onlineshop
-pferde online shop
-online pferdeshop
-fahrsport
-`
+const inputSentence = 'Hallo, das ist ein Marketing text'
 
 const main = async () => {
-  const keywords = initKeywords(keywordsRaw)
-  const trends = (await callAllTrends(keywords))
+  const inputSentenceTokenized = tokenizeAndSanitize(inputSentence, ' ')
+  const sourceKeyWords = initKeywords(inputSentenceTokenized)
+  const sourceTrends = (await callAllTrends(sourceKeyWords))
 
-  // const trends  = await gTrends(
-  //   ['reitsport', 'pferdesport', 'pferdezubehör', 'zubehör pferde', 'reiter']
-  // )
+  const synonyms = new Array<ISynonyms>()
+  for (const kw of sourceKeyWords) {
+    synonyms.push(await getSynonyms(kw.keyword))
+  }
 
-  console.log(trends)
+  for (const synonym of synonyms) {
+    const synonymTrends = await callAllTrends(synonym.synonyms)
+    for (const syn of synonym.synonyms) {
+      syn.normalizedTrend = synonymTrends.filter(st => st.keyword === syn.keyword)[0].normalizedTrend 
+    }
+  }
 
-  writeJson('./trends.json', trends)
+  const apiResponse = getApiResponse(sourceTrends, synonyms)
+  writeJson('./out.json', apiResponse)
+}
+
+const getApiResponse = (sourceTrends: IKeyword[], synonyms: ISynonyms[]): IApiResponse => {
+  const responseElements = new Array<IApiResponseElement>()
+
+  sourceTrends.forEach(sourceTrend => {
+    let responseElement
+    if(stopwordsDe.includes(sourceTrend.keyword)){
+      responseElement = {
+        keyword: sourceTrend,
+        synonyms: []
+      }
+    } else {
+    responseElement = {
+      keyWord: sourceTrend,
+      synonyms: synonyms.filter(syn => syn.word === sourceTrend.keyword)[0].synonyms
+    }
+  }
+    responseElements.push(responseElement)
+  })
+
+  return {
+    responseElements
+  }
 }
 
 main()

@@ -8,5 +8,5 @@ export interface IGoogleTrendsKW {
   normalizedTrend: number | null
 }
 
-export type OnChange = (newKeyword: string, arrIndex: number, googleTrendsKwIndex: number) => void
+export type OnChange = (newKeyword: string, arrIndex: number) => void
 

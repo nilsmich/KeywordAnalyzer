@@ -1,4 +1,5 @@
-import {SeoEditor} from '../components/SeoEditor/SeoText'
+import React from 'react'
+import {SeoEditor} from '../components/SeoEditor/SeoEditor'
 import {IKeywordSuggestion} from '../components/types'
 
 const testMock: IKeywordSuggestion[] = [

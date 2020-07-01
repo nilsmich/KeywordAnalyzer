@@ -32,9 +32,9 @@ interface ISuggestions {
 
 const Suggestion: FC<ISuggestions> = ({suggestions, arrIndex, onChange}) => {
   return <ul className={style.synonyms}>
-    {suggestions.map((sug, selectedIndex) =>
-      <li key={selectedIndex} onClick={() => {
-        onChange(sug.keyword, arrIndex, selectedIndex)
+    {suggestions.map((sug, index) =>
+      <li key={index} onClick={() => {
+        onChange(sug.keyword, arrIndex)
       }}>
         {sug.keyword}
         <span className={style.normalizedTrend}>{sug.normalizedTrend}</span>

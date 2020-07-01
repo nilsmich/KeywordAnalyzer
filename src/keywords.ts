@@ -1,6 +1,6 @@
 import {IKeyword} from '../types'
 
-export const initKeywords = (rawKeywords: string) => {
+export const initKeywords = (rawKeywords: string): IKeyword[] => {
   const rawKWArray = rawKeywords
     .split('\n')
     .map(kw => kw.trim())
@@ -18,11 +18,11 @@ export const initKeywords = (rawKeywords: string) => {
   })
 }
 
-export const toRawKeywords = (keywords: IKeyword[]) => {
+export const toRawKeywords = (keywords: IKeyword[]): string[] => {
   return keywords.map(kw => kw.keyword)
 }
 
-export const mapAveragesToKeywords = (averages: number[], keywords: IKeyword[]) => {
+export const mapAveragesToKeywords = (averages: number[], keywords: IKeyword[]): IKeyword[] => {
   if (averages.length !== keywords.length) {
     throw Error('mapAveragesToKeywords arrays are not compatible: ' + averages.toString() + keywords.toString())
   }

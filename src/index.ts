@@ -3,7 +3,7 @@ import {writeJson} from './helper'
 import {initKeywords} from './keywords'
 import {gTrends} from './gtrends'
 
-const keyworsRaw = `
+const keywordsRaw = `
 zubehör pferde
 western zubehör
 reitzubehör günstig
@@ -67,7 +67,7 @@ fahrsport
 `
 
 const main = async () => {
-  const keywords = initKeywords(keyworsRaw)
+  const keywords = initKeywords(keywordsRaw)
   const trends = (await callAllTrends(keywords))
 
   // const trends  = await gTrends(

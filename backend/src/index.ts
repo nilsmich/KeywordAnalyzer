@@ -55,7 +55,10 @@ const getApiResponse = (sourceTrends: IKeyword[], synonyms: ISynonyms[]): IApiRe
     } else {
     responseElement = {
       keyWord: sourceTrend.keyword,
-      synonyms: synonyms.filter(syn => syn.word === sourceTrend.keyword)[0].synonyms
+      synonyms: synonyms
+        .filter(syn => syn.word === sourceTrend.keyword)[0]
+        .synonyms
+        .filter(syn => syn.normalizedTrend > 0)
     }
   }
     responseElements.push(responseElement)

@@ -9,8 +9,9 @@ export const getSynonyms = async (word: string): Promise<ISynonyms> => {
     }))
     // tslint:disable-next-line: no-string-literal
     const termLists = (await apiResponse.json())['synsets'].map(synset => synset['terms'])
-    // tslint:disable-next-line: no-string-literal
-    termLists.forEach(termList => termList.map(term => synonyms.push(term['term'].replace('(das) ', '').replace('(der) ', '').replace('(die) ', ''))))
+    termLists.forEach(termList =>
+        termList.map(term =>
+            synonyms.push(term.term.replace('(das) ', '').replace('(der) ', '').replace('(die) ', ''))))
     const synonymKeyWords = initKeywords(synonyms)
 
     return {

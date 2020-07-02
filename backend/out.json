@@ -76,15 +76,15 @@
         },
         {
           "keyword": "Trubel",
-          "normalizedTrend": 0.7647058823529415
+          "normalizedTrend": 0.7450980392156865
         },
         {
           "keyword": "Hallo",
-          "normalizedTrend": 89.6078431372549
+          "normalizedTrend": 91.90196078431367
         },
         {
           "keyword": "Remmidemmi",
-          "normalizedTrend": 0.5686274509803921
+          "normalizedTrend": 0.6274509803921569
         },
         {
           "keyword": "Du solltest dich mal reden hören!",
@@ -111,44 +111,44 @@
     {
       "keyword": {
         "keyword": "das",
-        "normalizedTrend": 57.27450980392158
+        "normalizedTrend": 57.37254901960785
       },
       "synonyms": []
     },
     {
       "keyword": {
         "keyword": "ist",
-        "normalizedTrend": 80.17647058823528
+        "normalizedTrend": 80.68627450980392
       },
       "synonyms": []
     },
     {
       "keyword": {
         "keyword": "ein",
-        "normalizedTrend": 43.431372549019606
+        "normalizedTrend": 43.6862745098039
       },
       "synonyms": []
     },
     {
       "keyWord": {
         "keyword": "Marketing",
-        "normalizedTrend": 12.333333333333321
+        "normalizedTrend": 12.352941176470576
       },
       "synonyms": [
         {
           "keyword": "Absatzwirtschaft",
-          "normalizedTrend": 0.0392156862745098
+          "normalizedTrend": 0.0196078431372549
         },
         {
           "keyword": "Marketing",
-          "normalizedTrend": 80.50980392156863
+          "normalizedTrend": 82.68627450980392
         }
       ]
     },
     {
       "keyWord": {
         "keyword": "text",
-        "normalizedTrend": 68.0980392156863
+        "normalizedTrend": 67.86274509803923
       },
       "synonyms": [
         {
@@ -169,11 +169,11 @@
         },
         {
           "keyword": "Text",
-          "normalizedTrend": 68.0980392156863
+          "normalizedTrend": 67.86274509803923
         },
         {
           "keyword": "Literatur",
-          "normalizedTrend": 3.5294117647058822
+          "normalizedTrend": 3.5882352941176476
         },
         {
           "keyword": "Schriftwerk",

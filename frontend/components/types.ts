@@ -1,6 +1,6 @@
 export interface IKeywordSuggestion {
-  selected: string
-  keywords: IGoogleTrendsKW[]
+  keyWord: string
+  synonyms: IGoogleTrendsKW[]
 }
 
 export interface IGoogleTrendsKW {

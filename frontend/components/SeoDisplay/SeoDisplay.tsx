@@ -20,7 +20,7 @@ export const SeoDisplay: FC<ISeoText> = ({textObj, updateAlternateSeoTerm}) => {
   return (
     <div className={style.textDisplayArea}>
       {textObj.map((word, index) =>
-        <Word kwSug={word} key={index + word.selected} onChange={onChange(index)} />
+        <Word kwSug={word} key={index + word.keyWord} onChange={onChange(index)} />
       )}
     </div>
   )
@@ -32,9 +32,9 @@ interface IWord {
 }
 
 const Word: FC<IWord> = ({kwSug, onChange}) => {
-  if (kwSug.keywords.length > 0) {
+  if (kwSug.synonyms.length > 0) {
     return <Keyword keywordSuggestion={kwSug} onChange={onChange} />
   }
-  return <>{kwSug.selected} </>
+  return <>{kwSug.keyWord} </>
 }
 

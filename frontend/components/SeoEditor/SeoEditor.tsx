@@ -5,19 +5,19 @@ import {Textarea} from '../textarea/textarea'
 import {IKeywordSuggestion, UpdateAlternateSeoTerm} from '../types'
 
 interface ISeoText {
-  textObj: IKeywordSuggestion[]
+  initialText?: string
 }
 
 const API_ENDPOINT = 'http://localhost:8080/trends'
 
 // todo no params da diese aus der Text area kommen
-export const SeoEditor: FC<ISeoText> = ({textObj}) => {
-  const [keywordSuggestions, setKeywordSuggestions] = useState(textObj) // initial val undefined
-  const [text, setText] = useState('')
+export const SeoEditor: FC<ISeoText> = ({initialText}) => {
+  const [keywordSuggestions, setKeywordSuggestions] = useState<IKeywordSuggestion[]>([])
+  const [text, setText] = useState(initialText || '')
 
   const updateAlternateSeoTerm: UpdateAlternateSeoTerm = (newlySelectedWord: string, termIndex: number) => {
     const updated = [...keywordSuggestions]
-    updated[termIndex].selected = newlySelectedWord
+    updated[termIndex].keyWord = newlySelectedWord
     setKeywordSuggestions(updated)
   }
 
@@ -29,12 +29,13 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
   useEffect(() => {
     console.log('api call for: ', text)
     const callApi = async () => {
-      const url = API_ENDPOINT + '?text=handy pferd' + text
-      console.log(url)
+      const url = API_ENDPOINT + '?text=' + text
       const response = await fetch(url)
-      console.log(response)
       const json = await (response.json())
-      console.log(json.responseElements)
+
+      const keywordSuggestion: IKeywordSuggestion[] = json.responseElements
+      console.log(keywordSuggestion)
+      setKeywordSuggestions(keywordSuggestion)
     }
 
     if (!!text) {
@@ -48,13 +49,14 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
 
   return (
     <>
-      <Textarea value={toText(keywordSuggestions)} onChange={onChangeInputText} />
-      <SeoDisplay textObj={textObj} updateAlternateSeoTerm={updateAlternateSeoTerm} />
+      <Textarea value={keywordSuggestions.length > 0 ? toText(keywordSuggestions) : text}
+                onChange={onChangeInputText} />
+      <SeoDisplay textObj={keywordSuggestions} updateAlternateSeoTerm={updateAlternateSeoTerm} />
     </>)
 }
 
 const toText = (textObj: IKeywordSuggestion[]) => {
-  return textObj.map(t => t.selected).join('')
+  return textObj.map(t => t.keyWord).join('')
 }
 
 const copyToClipboard = (newClip: string) => {

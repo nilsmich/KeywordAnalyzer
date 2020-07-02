@@ -14,8 +14,8 @@ export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
 
   return (
     <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      {keywordSuggestion.selected}
-      {isHover && <Suggestion suggestions={keywordSuggestion.keywords} onChange={onChange} />}
+      {keywordSuggestion.keyWord}
+      {isHover && <Suggestion suggestions={keywordSuggestion.synonyms} onChange={onChange} />}
     </span>)
 }
 

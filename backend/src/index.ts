@@ -1,11 +1,10 @@
+import {IKeyword} from '../types'
 import {callAllTrends} from './callGoogleApi'
+import {getSynonyms} from './callOpenThesaurusApi'
+import {IApiResponse, IApiResponseElement} from './IApiResponse'
+import {ISynonyms} from './ISynonyms'
 import {initKeywords, tokenizeAndSanitize} from './keywords'
-import { getSynonyms } from './callOpenThesaurusApi'
-import { ISynonyms } from './ISynonyms'
-import { IKeyword } from '../types'
-import { IApiResponse, IApiResponseElement } from './IApiResponse'
-import { stopwordsDe } from './stopwords-de'
-import { writeJson } from './helper'
+import {stopwordsDe} from './stopwords-de'
 import express = require('express')
 
 const inputSentence = 'Hallo, das ist ein Marketing text'
@@ -13,13 +12,16 @@ const port = 8080
 
 const main = async () => {
   const app = express()
+  const cors = require('cors')
 
-  app.get( '/trends', async ( req, res ) => {
-    res.send( await getTrends(req.query.text) )
+  app.get('/trends', cors(), async (req, res) => {
+    // res.header('Access-Control-Allow-Origin', '*')
+    // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    res.send(await getTrends(req.query.text))
   })
 
-  app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` )
+  app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`)
   })
 }
 
@@ -47,17 +49,17 @@ const getApiResponse = (sourceTrends: IKeyword[], synonyms: ISynonyms[]): IApiRe
 
   sourceTrends.forEach(sourceTrend => {
     let responseElement
-    if(stopwordsDe.includes(sourceTrend.keyword.toLowerCase())){
+    if (stopwordsDe.includes(sourceTrend.keyword.toLowerCase())) {
       responseElement = {
         keyword: sourceTrend.keyword,
         synonyms: []
       }
     } else {
-    responseElement = {
-      keyWord: sourceTrend.keyword,
-      synonyms: synonyms.filter(syn => syn.word === sourceTrend.keyword)[0].synonyms
+      responseElement = {
+        keyWord: sourceTrend.keyword,
+        synonyms: synonyms.filter(syn => syn.word === sourceTrend.keyword)[0].synonyms
+      }
     }
-  }
     responseElements.push(responseElement)
   })
 

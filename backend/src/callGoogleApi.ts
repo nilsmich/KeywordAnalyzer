@@ -14,7 +14,7 @@ export const callAllTrends = async (keywords: IKeyword[]): Promise<IKeyword[]> =
 
   for (const batch of batches.batches) {
     const rawKeywords = toRawKeywords(batch)
-    //console.log('\n\n---------\nbatch index from api: ', batches.batches.indexOf(batch))
+    // console.log('\n\n---------\nbatch index from api: ', batches.batches.indexOf(batch))
 
     const apiBatchResult = await callTrendsApi([batches.referenceKw, ...rawKeywords])
     await wait(100) // throttle API calls
@@ -33,7 +33,7 @@ export const callAllTrends = async (keywords: IKeyword[]): Promise<IKeyword[]> =
   const mergedAvgs = mergeTrendBatchAvgs(batchAverages)
 
   return mapAveragesToKeywords(mergedAvgs, keywords)
-    // .sort((a, b) => b.normalizedTrend - a.normalizedTrend)
+  // .sort((a, b) => b.normalizedTrend - a.normalizedTrend)
 }
 
 

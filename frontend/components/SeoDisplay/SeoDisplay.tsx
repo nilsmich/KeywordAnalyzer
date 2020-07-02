@@ -32,7 +32,7 @@ interface IWord {
 }
 
 const Word: FC<IWord> = ({kwSug, onChange}) => {
-  if (kwSug.synonyms.length > 0) {
+  if (kwSug.synonyms.length > -1) {
     return <Keyword keywordSuggestion={kwSug} onChange={onChange} />
   }
   return <>{kwSug.keyWord} </>

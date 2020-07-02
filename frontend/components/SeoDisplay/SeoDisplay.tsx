@@ -36,7 +36,9 @@ const Word: FC<IWord> = ({kwSug, onChange}) => {
   console.log(kwSug)
   console.log(kwSug.synonyms.length)
   if (kwSug.synonyms.length <= 0) {
-    return <>stop{kwSug.keyWord} </>
+
+    // @ts-ignore
+    return <>{kwSug.keyword} </>
   }
   return <Keyword keywordSuggestion={kwSug} onChange={onChange} />
 }

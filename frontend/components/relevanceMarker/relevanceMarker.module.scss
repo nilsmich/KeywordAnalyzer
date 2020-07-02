@@ -1,5 +1,7 @@
 .markerContainer {
     width: 4rem;
+    max-width: 4rem;
+    overflow: hidden;
     height: 1rem;
     display: inline-block;
     border: 1px solid #dbdbdb;

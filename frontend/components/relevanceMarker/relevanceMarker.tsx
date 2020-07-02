@@ -7,7 +7,7 @@ interface IRelevanceMarker {
 
 
 export const RelevanceMarker: FC<IRelevanceMarker> = ({normalizedTrend}) => {
-  const widthPercent = 30
+  const widthPercent = normalizedTrend * 100
 
   return (
     <span className={style.markerContainer}>

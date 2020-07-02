@@ -14,7 +14,6 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
   const [keywordSuggestions, setKeywordSuggestions] = useState(textObj) // initial val undefined
   const [text, setText] = useState('')
 
-
   const updateAlternateSeoTerm: UpdateAlternateSeoTerm = (newlySelectedWord: string, termIndex: number) => {
     const updated = [...keywordSuggestions]
     updated[termIndex].selected = newlySelectedWord

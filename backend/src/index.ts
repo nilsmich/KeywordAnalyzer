@@ -63,7 +63,7 @@ const getApiResponse = (
         keyWord: sourceTrend.keyword,
         synonyms: synonyms.filter((syn) => syn.word === sourceTrend.keyword)[0]
           .synonyms,
-        //.filter(syn => syn.normalizedTrend > 0)
+        // .filter(syn => syn.normalizedTrend > 0)
       }
     }
     responseElements.push(responseElement)

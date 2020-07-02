@@ -12,8 +12,23 @@ interface IKeyword {
 export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
   const [isHover, setIsHover] = useState(false)
 
+  const max = getMaxTrend(keywordSuggestion.synonyms)
+  const keywordTrend = keywordSuggestion.synonyms.find(s => {
+    // console.log(s.keyword.toLowerCase().trim())
+    // console.log(keywordSuggestion.keyWord.toLowerCase().trim())
+    return s.keyword.toLowerCase().trim() === keywordSuggestion.keyWord.toLowerCase().trim()
+  })
+
+  const potential = (max - (keywordTrend?.normalizedTrend || 0)) / max
+  console.log('keywordSuggestion.keyWord', keywordSuggestion.keyWord)
+  console.log('max', max)
+  console.log('keywordTrend', keywordTrend)
+  console.log('keywordSuggestion.synonyms', keywordSuggestion.synonyms)
+  console.log('potential', potential)
+
   return (
-    <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+    <span className={style.keyword} style={{background: `rgba(254, 232, 193, ${potential})`}}
+          onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
       {keywordSuggestion.keyWord}
       {isHover && <Synonyms synonyms={keywordSuggestion.synonyms} onChange={onChange} />}
     </span>)

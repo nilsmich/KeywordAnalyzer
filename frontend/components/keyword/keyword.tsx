@@ -1,5 +1,5 @@
 import {FC, useState} from 'react'
-import {RelevanceMarker} from '../relevanceMarker/relevanceMarker'
+import {GoogleTrendsMarker} from '../relevanceMarker/googleTrendsMarker'
 import {IGoogleTrendsKW, IKeywordSuggestion} from '../types'
 import style from './keyword.module.scss'
 
@@ -15,26 +15,40 @@ export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
   return (
     <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
       {keywordSuggestion.keyWord}
-      {isHover && <Suggestion suggestions={keywordSuggestion.synonyms} onChange={onChange} />}
+      {isHover && <Synonyms synonyms={keywordSuggestion.synonyms} onChange={onChange} />}
     </span>)
 }
 
 
 interface ISuggestions {
-  suggestions: IGoogleTrendsKW[]
+  synonyms: IGoogleTrendsKW[]
   onChange: (newKeyword: string) => void
 }
 
-const Suggestion: FC<ISuggestions> = ({suggestions, onChange}) => {
+const Synonyms: FC<ISuggestions> = ({synonyms, onChange}) => {
+  const max = getMaxTrend(synonyms)
+
   return <ul className={style.synonyms}>
-    {suggestions.map((sug, index) =>
+    {synonyms.map((sug, index) =>
       <li key={index} onClick={() => {
         onChange(sug.keyword)
       }}>
         {sug.keyword}
 
-        <RelevanceMarker normalizedTrend={sug.normalizedTrend || 0} />
+        <GoogleTrendsMarker normalizedTrend={normalizeMarker(max, sug.normalizedTrend)} />
       </li>
     )}
   </ul>
+}
+
+const getMaxTrend = (synonyms: IGoogleTrendsKW[]) => {
+  let max = 0
+  synonyms.forEach((s => {
+    max = !!s.normalizedTrend && s.normalizedTrend > max ? s.normalizedTrend : max
+  }))
+  return max
+}
+
+const normalizeMarker = (max: number, normalizedTrend: number | null) => {
+  return !!normalizedTrend ? normalizedTrend / max : 0
 }

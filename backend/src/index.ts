@@ -50,7 +50,6 @@ const getApiResponse = (
   synonyms: ISynonyms[]
 ): IApiResponse => {
   const responseElements = new Array<IApiResponseElement>()
-  console.log(sourceTrends)
   sourceTrends.forEach((sourceTrend) => {
     let responseElement
     if (stopwordsDe.includes(sourceTrend.keyword.toLowerCase())) {

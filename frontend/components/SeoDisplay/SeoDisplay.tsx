@@ -21,7 +21,7 @@ export const SeoDisplay: FC<ISeoText> = ({textObj, updateAlternateSeoTerm}) => {
   return (
     <div className={style.textDisplayArea}>
       {textObj.map((word, index) =>
-        <Word kwSug={word} key={index + word.keyWord} onChange={onChange(index)} />
+        <Word kwSug={word} key={index.toString() + word.keyWord} onChange={onChange(index)} />
       )}
     </div>
   )
@@ -35,7 +35,7 @@ interface IWord {
 const Word: FC<IWord> = ({kwSug, onChange}) => {
   console.log(kwSug)
   console.log(kwSug.synonyms.length)
-  if (kwSug.synonyms.length === 0) {
+  if (kwSug.synonyms.length <= 0) {
     return <>stop{kwSug.keyWord} </>
   }
   return <Keyword keywordSuggestion={kwSug} onChange={onChange} />

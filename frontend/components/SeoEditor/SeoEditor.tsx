@@ -35,7 +35,6 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
       const json = await (response.json())
 
       const keywordSuggestion: IKeywordSuggestion[] = json.responseElements
-      console.log(keywordSuggestion)
       setKeywordSuggestions(keywordSuggestion)
     }
 

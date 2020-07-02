@@ -1,38 +1,39 @@
 import {FC, useState} from 'react'
-import {IKeywordSuggestion, ISuggestion} from '../types'
+import {RelevanceMarker} from '../relevanceMarker/relevanceMarker'
+import {IGoogleTrendsKW, IKeywordSuggestion} from '../types'
 import style from './keyword.module.scss'
 
 interface IKeyword {
   keywordSuggestion: IKeywordSuggestion
-  // onChange: (newKeyword: string, index: number) => string // todo make this requirerd
+  onChange: (newKeyword: string) => void
 }
 
 
-export const Keyword: FC<IKeyword> = ({keywordSuggestion}) => {
+export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
   const [isHover, setIsHover] = useState(false)
-
-  /* useEffect(()=> {
-     console.log('isHover', isHover)
-   }, [isHover])*/
 
   return (
     <span className={style.keyword} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      {keywordSuggestion.keyword}
-      {isHover && <Suggestion suggestions={keywordSuggestion.synonym} />}
+      {keywordSuggestion.selected}
+      {isHover && <Suggestion suggestions={keywordSuggestion.keywords} onChange={onChange} />}
     </span>)
 }
 
 
 interface ISuggestions {
-  suggestions: ISuggestion[]
+  suggestions: IGoogleTrendsKW[]
+  onChange: (newKeyword: string) => void
 }
 
-const Suggestion: FC<ISuggestions> = ({suggestions}) => {
+const Suggestion: FC<ISuggestions> = ({suggestions, onChange}) => {
   return <ul className={style.synonyms}>
     {suggestions.map((sug, index) =>
-      <li key={index} onClick={() => {console.log(sug.suggestion)}}>
-        {sug.suggestion}
-        <span className={style.normalizedTrend}>{sug.normalizedTrend}</span>
+      <li key={index} onClick={() => {
+        onChange(sug.keyword)
+      }}>
+        {sug.keyword}
+
+        <RelevanceMarker normalizedTrend={sug.normalizedTrend || 0} />
       </li>
     )}
   </ul>

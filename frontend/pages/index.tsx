@@ -1,19 +1,25 @@
-import {SeoText} from '../components/SeoText/SeoText'
+import React from 'react'
+import {Layout} from '../components/Layout/layout'
+import {SeoEditor} from '../components/SeoEditor/SeoEditor'
 import {IKeywordSuggestion} from '../components/types'
 
 const testMock: IKeywordSuggestion[] = [
-  {keyword: 'Ich suche ein neues ', synonym: []},
+  {selected: 'Ich suche ein neues ', keywords: []},
   {
-    keyword: 'iPhone', synonym: [
-      {suggestion: 'Smartphone', normalizedTrend: 200},
-      {suggestion: 'Android', normalizedTrend: 300}
+    selected: 'iPhone',
+    keywords: [
+      {keyword: 'iPhone', normalizedTrend: 100},
+      {keyword: 'Smartphone', normalizedTrend: 200},
+      {keyword: 'Android', normalizedTrend: 300}
     ]
   }
 ]
 
 
 const IndexPage = () => (
-  <SeoText textObj={testMock} />
+  <Layout>
+    <SeoEditor textObj={testMock} />
+  </Layout>
 )
 
 export default IndexPage

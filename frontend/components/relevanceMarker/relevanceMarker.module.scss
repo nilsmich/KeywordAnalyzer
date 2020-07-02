@@ -1,0 +1,15 @@
+.markerContainer {
+    width: 4rem;
+    height: 1rem;
+    display: inline-block;
+    border: 1px solid #dbdbdb;
+    background: #f8f8f8;
+    position: absolute;
+    right: .7rem;
+}
+
+.marker {
+    display: inline-block;
+    height: 1rem;
+    background: #6190ff;
+}

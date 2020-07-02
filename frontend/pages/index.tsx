@@ -5,8 +5,7 @@ import {SeoEditor} from '../components/SeoEditor/SeoEditor'
 const IndexPage = () => (
   <Layout>
     <br />
-    <h1>SEO Typewriter</h1>
-    <br />
+    <h1>SEOTyper</h1>
     <br />
     <SeoEditor initialText={'Ich suche ein neues Natel'} />
   </Layout>

@@ -8,6 +8,7 @@ interface ISeoText {
   textObj: IKeywordSuggestion[]
 }
 
+const API_ENDPOINT = 'http://localhost:8080/trends'
 
 // todo no params da diese aus der Text area kommen
 export const SeoEditor: FC<ISeoText> = ({textObj}) => {
@@ -27,6 +28,19 @@ export const SeoEditor: FC<ISeoText> = ({textObj}) => {
 
   useEffect(() => {
     console.log('api call for: ', text)
+    const callApi = async () => {
+      const url = API_ENDPOINT + '?text=handy pferd' + text
+      console.log(url)
+      const response = await fetch(url)
+      console.log(response)
+      const json = await (response.json())
+      console.log(json.responseElements)
+    }
+
+    if (!!text) {
+      callApi()
+    }
+
     // call api here
     // set textObj here
   }, [text])

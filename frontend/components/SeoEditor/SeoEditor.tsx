@@ -18,7 +18,7 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
 
   const updateAlternateSeoTerm: UpdateAlternateSeoTerm = (newlySelectedWord: string, termIndex: number) => {
     const updated = [...keywordSuggestions]
-    updated[termIndex].keyWord = newlySelectedWord
+    updated[termIndex].keyword = newlySelectedWord
     setKeywordSuggestions(updated)
   }
 
@@ -42,8 +42,6 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
       callApi()
     }
 
-    // call api here
-    // set textObj here
   }, [text])
 
 
@@ -56,7 +54,7 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
 }
 
 const toText = (textObj: IKeywordSuggestion[]) => {
-  return textObj.map(t => t.keyWord).join('')
+  return textObj.map(t => t.keyword).join(' ')
 }
 
 const copyToClipboard = (newClip: string) => {

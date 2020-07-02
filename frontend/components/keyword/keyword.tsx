@@ -14,7 +14,7 @@ export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
 
   const max = getMaxTrend(keywordSuggestion.synonyms)
   const keywordTrend = keywordSuggestion.synonyms.find(s => {
-    return s.keyword.toLowerCase().trim() === keywordSuggestion.keyWord.toLowerCase().trim()
+    return s.keyword.toLowerCase().trim() === keywordSuggestion.keyword.toLowerCase().trim()
   })
 
   const potential = (max - (keywordTrend?.normalizedTrend || 0)) / max
@@ -22,7 +22,7 @@ export const Keyword: FC<IKeyword> = ({keywordSuggestion, onChange}) => {
   return (
     <span className={style.keyword} style={{background: `rgba(254, 232, 193, ${potential})`}}
           onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-      {keywordSuggestion.keyWord}
+      {keywordSuggestion.keyword}
       {isHover && <Synonyms synonyms={keywordSuggestion.synonyms} onChange={onChange} />}
     </span>)
 }

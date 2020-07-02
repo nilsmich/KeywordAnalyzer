@@ -50,6 +50,8 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
     <>
       <Textarea onChange={onChangeInputText}
                 value={keywordSuggestions.length > 0 ? toText(keywordSuggestions) : text} />
+      <br />
+      <br />
       <SeoDisplay textObj={keywordSuggestions} updateAlternateSeoTerm={updateAlternateSeoTerm} />
     </>)
 }

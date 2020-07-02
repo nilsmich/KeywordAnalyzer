@@ -26,7 +26,6 @@ const main = async () => {
 const getTrends = async (input: string): Promise<IApiResponse> => {
   const inputSentenceTokenized = tokenizeAndSanitize(input, ' ')
   const sourceTrends = initKeywords(inputSentenceTokenized)
-  // const sourceTrends = (await callAllTrends(sourceKeyWords))
 
   const synonyms = new Array<ISynonyms>()
   for (const kw of sourceTrends) {

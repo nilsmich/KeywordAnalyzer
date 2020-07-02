@@ -1,4 +1,6 @@
 import {FC} from 'react'
+import {toText} from '../../helper'
+import {CopyButton} from '../button/copyButton'
 import {Keyword} from '../keyword/keyword'
 import {IKeywordSuggestion, UpdateAlternateSeoTerm} from '../types'
 import style from './seoDisplay.module.scss'
@@ -23,6 +25,7 @@ export const SeoDisplay: FC<ISeoText> = ({textObj, updateAlternateSeoTerm}) => {
       {textObj.map((word, index) =>
         <Word kwSug={word} key={index.toString() + word.keyword} onChange={onChange(index)} />
       )}
+      <CopyButton textToCopy={toText(textObj)} />
     </div>
   )
 }
@@ -33,11 +36,7 @@ interface IWord {
 }
 
 const Word: FC<IWord> = ({kwSug, onChange}) => {
-  console.log(kwSug)
-  console.log(kwSug.synonyms.length)
   if (kwSug.synonyms.length <= 0) {
-
-    // @ts-ignore
     return <>{kwSug.keyword} </>
   }
   return <Keyword keywordSuggestion={kwSug} onChange={onChange} />

@@ -1,0 +1,16 @@
+.copyButton {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    svg {
+        color: black;
+        stroke: black;
+    }
+}

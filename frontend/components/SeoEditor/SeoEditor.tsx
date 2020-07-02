@@ -1,5 +1,6 @@
 import React, {FC, useEffect, useState} from 'react'
 import {useDebouncedCallback} from 'use-debounce'
+import {copyToClipboard, toText} from '../../helper'
 import {SeoDisplay} from '../SeoDisplay/SeoDisplay'
 import {Textarea} from '../textarea/textarea'
 import {IKeywordSuggestion, UpdateAlternateSeoTerm} from '../types'
@@ -53,14 +54,3 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
     </>)
 }
 
-const toText = (textObj: IKeywordSuggestion[]) => {
-  return textObj.map(t => t.keyword).join(' ')
-}
-
-const copyToClipboard = (newClip: string) => {
-  navigator.clipboard.writeText(newClip).then(() => {
-    console.log('coppied to clipboard')
-  }, () => {
-    console.log('copy to clipboard failed')
-  })
-}

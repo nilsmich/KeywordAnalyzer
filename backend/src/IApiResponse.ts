@@ -5,6 +5,6 @@ export interface IApiResponse {
 }
 
 export interface IApiResponseElement {
-    keyWord: IKeyword
+    keyWord: string
     synonyms: IKeyword[]
 }

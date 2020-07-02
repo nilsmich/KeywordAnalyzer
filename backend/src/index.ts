@@ -14,8 +14,8 @@ const port = 8080
 const main = async () => {
   const app = express()
 
-  app.get( '/', async ( req, res ) => {
-    res.send( await getTrends(inputSentence) )
+  app.get( '/trends', async ( req, res ) => {
+    res.send( await getTrends(req.query.text) )
   })
 
   app.listen( port, () => {
@@ -25,11 +25,11 @@ const main = async () => {
 
 const getTrends = async (input: string): Promise<IApiResponse> => {
   const inputSentenceTokenized = tokenizeAndSanitize(input, ' ')
-  const sourceKeyWords = initKeywords(inputSentenceTokenized)
-  const sourceTrends = (await callAllTrends(sourceKeyWords))
+  const sourceTrends = initKeywords(inputSentenceTokenized)
+  // const sourceTrends = (await callAllTrends(sourceKeyWords))
 
   const synonyms = new Array<ISynonyms>()
-  for (const kw of sourceKeyWords) {
+  for (const kw of sourceTrends) {
     synonyms.push(await getSynonyms(kw.keyword))
   }
 
@@ -48,14 +48,14 @@ const getApiResponse = (sourceTrends: IKeyword[], synonyms: ISynonyms[]): IApiRe
 
   sourceTrends.forEach(sourceTrend => {
     let responseElement
-    if(stopwordsDe.includes(sourceTrend.keyword)){
+    if(stopwordsDe.includes(sourceTrend.keyword.toLowerCase())){
       responseElement = {
-        keyword: sourceTrend,
+        keyword: sourceTrend.keyword,
         synonyms: []
       }
     } else {
     responseElement = {
-      keyWord: sourceTrend,
+      keyWord: sourceTrend.keyword,
       synonyms: synonyms.filter(syn => syn.word === sourceTrend.keyword)[0].synonyms
     }
   }

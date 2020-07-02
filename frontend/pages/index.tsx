@@ -14,7 +14,6 @@ const IndexPage = () => (
     <br />
     <br />
     <br />
-    <h1>Präsentation</h1>
     <div>
       <h2>Features</h2>
       <ul>

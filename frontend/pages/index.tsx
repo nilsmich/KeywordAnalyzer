@@ -7,7 +7,6 @@ const IndexPage = () => (
     <br />
     <h1>SEOTyper</h1>
     <br />
-    <br />
     <SeoEditor initialText={'Ich suche ein neues Natel'} />
   </Layout>
 )

@@ -6,7 +6,7 @@ interface IRelevanceMarker {
 }
 
 
-export const RelevanceMarker: FC<IRelevanceMarker> = ({normalizedTrend}) => {
+export const GoogleTrendsMarker: FC<IRelevanceMarker> = ({normalizedTrend}) => {
   const widthPercent = normalizedTrend * 100
 
   return (

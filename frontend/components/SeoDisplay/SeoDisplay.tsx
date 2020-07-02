@@ -11,6 +11,7 @@ interface ISeoText {
 
 export const SeoDisplay: FC<ISeoText> = ({textObj, updateAlternateSeoTerm}) => {
 
+
   const onChange = (arrIndex: number) => {
     return (newKeyword: string) => {
       updateAlternateSeoTerm(newKeyword, arrIndex)
@@ -32,9 +33,11 @@ interface IWord {
 }
 
 const Word: FC<IWord> = ({kwSug, onChange}) => {
-  if (kwSug.synonyms.length > 0) {
-    return <Keyword keywordSuggestion={kwSug} onChange={onChange} />
+  console.log(kwSug)
+  console.log(kwSug.synonyms.length)
+  if (kwSug.synonyms.length === 0) {
+    return <>stop{kwSug.keyWord} </>
   }
-  return <>{kwSug.keyWord} </>
+  return <Keyword keywordSuggestion={kwSug} onChange={onChange} />
 }
 

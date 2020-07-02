@@ -9,6 +9,7 @@ interface ISeoText {
 }
 
 const API_ENDPOINT = 'http://localhost:8080/trends'
+const DEBOUNCE_TIMEOUT = 500
 
 // todo no params da diese aus der Text area kommen
 export const SeoEditor: FC<ISeoText> = ({initialText}) => {
@@ -24,7 +25,7 @@ export const SeoEditor: FC<ISeoText> = ({initialText}) => {
   const [onChangeInputText] = useDebouncedCallback((value: string) => {
     setText(value)
     copyToClipboard(value)
-  }, 1000)
+  }, DEBOUNCE_TIMEOUT)
 
   useEffect(() => {
     console.log('api call for: ', text)
